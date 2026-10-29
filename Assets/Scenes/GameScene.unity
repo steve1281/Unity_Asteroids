@@ -864,25 +864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295138202}
   m_CullTransparentMesh: 1
---- !u!1 &1506959461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 103353330401247052, guid: 5e1b83a73d676584a89d068c8df132a8, type: 3}
-  m_PrefabInstance: {fileID: 1617913522}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1506959463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506959461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a6f0d1bd8d55248af0fc04fe0f0ab5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Asteroids.Player
-  player: {fileID: 1506959461}
-  rotationSpeed: 100
 --- !u!1001 &1617913522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -938,10 +919,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 103353330401247052, guid: 5e1b83a73d676584a89d068c8df132a8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1506959463}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e1b83a73d676584a89d068c8df132a8, type: 3}
 --- !u!1 &1634201782
 GameObject:
