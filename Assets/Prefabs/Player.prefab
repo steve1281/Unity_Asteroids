@@ -34,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 8740811506970916873}
   - {fileID: 5942025641431132682}
+  - {fileID: 2074908656371276231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6055677435934778801
@@ -53,6 +54,8 @@ MonoBehaviour:
   thrust: {fileID: 3053458148353064489}
   sprite: {fileID: 6318727633522308584}
   thrusterPower: 10
+  cannon: {fileID: 225517882021934409}
+  bulletPrefab: {fileID: 5854266639794562184, guid: 52141f32853c28742b7eeee79c9ed7d8, type: 3}
 --- !u!58 &4752406668260119851
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,6 +119,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &225517882021934409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2074908656371276231}
+  m_Layer: 0
+  m_Name: Cannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2074908656371276231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225517882021934409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4614141542219509431}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3053458148353064489
 GameObject:
   m_ObjectHideFlags: 0

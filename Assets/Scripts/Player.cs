@@ -14,6 +14,10 @@ namespace Asteroids
 
         [SerializeField] private float thrusterPower = 10f;
 
+        [SerializeField] private GameObject cannon;
+        [SerializeField] private GameObject bulletPrefab;
+
+
         private Rigidbody2D rb;
 
         private void Awake()
@@ -44,9 +48,9 @@ namespace Asteroids
                 rb.AddForce(transform.right * thrusterPower );
 
             }
-            if (Keyboard.current.spaceKey.isPressed)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame) //isPressed)
             {
-                Debug.Log("Player::Update Hyperspace");
+                Instantiate(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
             }
         }
         private IEnumerator Thrust()
