@@ -1,6 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections; 
+using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
 
 namespace Asteroids
 {
@@ -9,7 +10,7 @@ namespace Asteroids
         [SerializeField] private List<Vector3> spawnPoints;
         [SerializeField] private int spawnCount = 1;
 
-        [SerializeField] private GameObject asteroidPrefab;
+        [SerializeField] private List<GameObject> asteroidPrefabs;
 
         private void Start()
         {
@@ -17,11 +18,20 @@ namespace Asteroids
         }
         public void GenerateAsteroids(int amount)
         {
-            // for now, just one.
-            int randomIndex = Random.Range(0, spawnPoints.Count);
-            Vector3 randomPoint = spawnPoints[randomIndex];
+            List<int> randomSpawnIndexes = RandomizeSpawnLocations();
+            for (int i = 0; i < amount; i++)
+            {
+                Vector3 randomPoint = spawnPoints[randomSpawnIndexes[i]];
+                int randomAsteroid = Random.Range(0, asteroidPrefabs.Count);
+                Instantiate(asteroidPrefabs[randomAsteroid], randomPoint, transform.rotation);
+            }
+        }
 
-            Instantiate(asteroidPrefab, randomPoint, transform.rotation);
+        private List<int> RandomizeSpawnLocations()
+        {
+            List<int> temp = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+            temp = temp.OrderBy(x => Random.value).ToList();
+            return temp;
         }
     }
 }

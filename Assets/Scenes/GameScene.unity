@@ -158,8 +158,11 @@ MonoBehaviour:
   - {x: -1.9, y: -3.29, z: 0}
   - {x: 0.66, y: -3.74, z: 0}
   - {x: 2.91, y: -2.44, z: 0}
-  spawnCount: 1
-  asteroidPrefab: {fileID: 5083403236707966570, guid: ab042dd01c57d3f44b548431280ae941, type: 3}
+  spawnCount: 9
+  asteroidPrefabs:
+  - {fileID: 5083403236707966570, guid: ab042dd01c57d3f44b548431280ae941, type: 3}
+  - {fileID: 6237480883934108815, guid: 7c2b4796235e8434babbce4543abebd8, type: 3}
+  - {fileID: 7748849456780458219, guid: 737f769167b4fdd4391916742ddb1020, type: 3}
 --- !u!4 &61493070
 Transform:
   m_ObjectHideFlags: 0
