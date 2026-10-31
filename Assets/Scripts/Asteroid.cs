@@ -13,12 +13,14 @@ namespace Asteroids
 
         private AsteroidSize size = AsteroidSize.Large;
 
+        [SerializeField] private float speed = 100f;
+
         void Start()
         {
             SpawnAsteroid();
         }
 
-        public void SpawnAsteroid(AsteroidSize size=AsteroidSize.Large)
+        public void SpawnAsteroid(AsteroidSize size=AsteroidSize.Small)
         {
             asteroidValue = size switch
             {
@@ -28,9 +30,21 @@ namespace Asteroids
                 _    => asteroidValue
             };
 
+            float tempScale = 1.0f;
+
+            if (size == AsteroidSize.Small)
+            {
+                transform.localScale *= .33f;
+                tempScale = 1.66f; 
+            }
+            if (size == AsteroidSize.Medium)
+            {
+                transform.localScale *= .66f;
+                tempScale = 1.33f; 
+            }
             // maybe scale as well?
             List<int> dirs = RandomizeDirections();
-            rb.AddForce(directions[dirs[0]] * 100f);
+            rb.AddForce(directions[dirs[0]] * speed * tempScale);
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -48,7 +62,7 @@ namespace Asteroids
         }
         private void OnDestroy()
         {
-            GameManager.Instance.UpdateScore(20);
+            GameManager.Instance.UpdateScore(asteroidValue);
         }
     }
     public enum AsteroidSize
