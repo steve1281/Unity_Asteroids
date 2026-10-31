@@ -203,3 +203,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroids.Asteroid
   rb: {fileID: 3964242618954744509}
+  directions:
+  - {x: 1, y: 0, z: 0}
+  - {x: 0.866, y: 0.5, z: 0}
+  - {x: 0.5, y: 0.866, z: 0}
+  - {x: 0, y: 1, z: 0}
+  - {x: -0.5, y: 0.866, z: 0}
+  - {x: -0.866, y: 0.5, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: -0.866, y: -0.5, z: 0}
+  - {x: -0.5, y: -0.866, z: 0}
+  - {x: 0, y: -1, z: 0}
+  - {x: 0.5, y: -0.866, z: 0}
+  - {x: 0.866, y: -0.5, z: 0}
