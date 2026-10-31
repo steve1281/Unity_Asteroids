@@ -19,6 +19,8 @@ namespace Asteroids
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.gameObject.layer == Layers.Teleporter) return; // ignore.
+
             // Check if the hit object belongs to the "Enemy" layer
             if (other.gameObject.layer == Layers.Enemy)
             {
@@ -28,6 +30,10 @@ namespace Asteroids
             // if bullet collides with anything; remove it
             Debug.Log("Bullet::OnTriggerEnter2D collided and removed bullet.");
             Destroy(gameObject);
+        }
+        private void OnDestroy()
+        {
+            GameManager.Instance.SubPlayerBullet();
         }
 
     }

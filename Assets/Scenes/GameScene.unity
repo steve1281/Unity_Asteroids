@@ -695,6 +695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SouthTeleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 129504920799313167, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: newx
       value: -99
@@ -706,6 +710,10 @@ PrefabInstance:
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_EditorClassIdentifier
       value: Assembly-CSharp::Asteroids.Teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981372496265258148, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6978965798169061034, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1142,6 +1150,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WestTeleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 129504920799313167, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: newx
       value: -6.5
@@ -1153,6 +1165,10 @@ PrefabInstance:
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_EditorClassIdentifier
       value: Assembly-CSharp::Asteroids.Teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981372496265258148, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6978965798169061034, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1211,6 +1227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EastTeleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 129504920799313167, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: newx
       value: 6.5
@@ -1222,6 +1242,10 @@ PrefabInstance:
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_EditorClassIdentifier
       value: Assembly-CSharp::Asteroids.Teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981372496265258148, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6978965798169061034, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1280,6 +1304,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NorthTeleporter
       objectReference: {fileID: 0}
+    - target: {fileID: 129504920799313167, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: newx
       value: -99
@@ -1291,6 +1319,10 @@ PrefabInstance:
     - target: {fileID: 5181659838475037068, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_EditorClassIdentifier
       value: Assembly-CSharp::Asteroids.Teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981372496265258148, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6978965798169061034, guid: 22cff3857e06045428b13d69acf9f71d, type: 3}
       propertyPath: m_LocalPosition.x

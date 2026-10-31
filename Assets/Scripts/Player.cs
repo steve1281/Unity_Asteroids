@@ -50,7 +50,11 @@ namespace Asteroids
             }
             if (Keyboard.current.spaceKey.wasPressedThisFrame) //isPressed)
             {
-                Instantiate(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
+                if (GameManager.Instance.CanPlayerFire())
+                {
+                    Instantiate(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
+                    GameManager.Instance.AddPlayerBullet();
+                }
             }
 
             // bug fix: remove angular (spin) from the player

@@ -11,6 +11,8 @@ namespace Asteroids
         public int ships = 4;
         private string shipReference = "^^^^^^^^^^^^";
 
+        private int activePlayerBullets = 0;
+
         private static GameManager instance;
         public static GameManager Instance { get => instance; private set => instance = value; }
         private void Awake()
@@ -37,6 +39,22 @@ namespace Asteroids
         public void UpdateShips(int amount = 1)
         {
             ships += amount;
+        }
+        public void AddPlayerBullet()
+        {
+            activePlayerBullets++;
+        }
+        public void SubPlayerBullet()
+        {
+            activePlayerBullets--;
+        }
+        public bool CanPlayerFire()
+        {
+            if (activePlayerBullets <4)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -34,5 +34,9 @@ namespace Asteroids
             temp = temp.OrderBy(x => Random.value).ToList();
             return temp;
         }
+        private void OnDestroy()
+        {
+            Debug.Log("--- ==== Booom ==== ---");
+        }
     }
 }
