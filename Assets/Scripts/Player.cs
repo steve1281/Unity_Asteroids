@@ -52,6 +52,9 @@ namespace Asteroids
             {
                 Instantiate(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
             }
+
+            // bug fix: remove angular (spin) from the player
+            rb.angularVelocity = 0f;
         }
         private IEnumerator Thrust()
         {
