@@ -9,15 +9,27 @@ namespace Asteroids
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private List<Vector3> directions;
 
+        private int asteroidValue =0;
+
+        private AsteroidSize size = AsteroidSize.Large;
+
         void Start()
         {
             SpawnAsteroid();
         }
 
-        public void SpawnAsteroid()
+        public void SpawnAsteroid(AsteroidSize size=AsteroidSize.Large)
         {
+            asteroidValue = size switch
+            {
+                AsteroidSize.Large => 20,
+                AsteroidSize.Medium => 50,
+                AsteroidSize.Small => 100,
+                _    => asteroidValue
+            };
+
+            // maybe scale as well?
             List<int> dirs = RandomizeDirections();
-            //rb.AddForce(gameObject.transform.right * 100f);
             rb.AddForce(directions[dirs[0]] * 100f);
         }
         private void OnTriggerEnter2D(Collider2D other)
@@ -36,7 +48,12 @@ namespace Asteroids
         }
         private void OnDestroy()
         {
-            Debug.Log("--- ==== Booom ==== ---");
+            GameManager.Instance.UpdateScore(20);
         }
     }
+    public enum AsteroidSize
+    {
+        Large, Small, Medium
+    }
+
 }
