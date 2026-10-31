@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6055677435934778801}
   - component: {fileID: 4752406668260119851}
   - component: {fileID: 4774527912854654271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2074908656371276231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5942025641431132682}
   - component: {fileID: 1840033193570829086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Thrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8740811506970916873}
   - component: {fileID: 7731990864729297357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
