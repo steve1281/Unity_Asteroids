@@ -6,6 +6,7 @@ namespace Asteroids
     {
         [SerializeField] private float lifetime = 1.0f;
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private float bulletSpeed = 500f;
 
         private void Awake()
         {
@@ -15,7 +16,7 @@ namespace Asteroids
         void Start()
         {
             Destroy(gameObject, lifetime);
-            rb.AddForce(gameObject.transform.right * 500f);
+            rb.AddForce(gameObject.transform.right * bulletSpeed);
         }
         private void OnTriggerEnter2D(Collider2D other)
         {

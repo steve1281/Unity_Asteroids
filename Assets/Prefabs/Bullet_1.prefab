@@ -110,8 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6eb32b459e0b644bbedea5bf72e7d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroids.Bullet
-  lifetime: 1
-  rb: {fileID: 0}
+  lifetime: 0.8
+  rb: {fileID: 3551284047105413093}
+  bulletSpeed: 1000
 --- !u!1 &6257804561675843040
 GameObject:
   m_ObjectHideFlags: 0

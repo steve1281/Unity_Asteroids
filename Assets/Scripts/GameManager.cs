@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Asteroids
 {
@@ -28,11 +30,15 @@ namespace Asteroids
 
         private void Update()
         {
+            if (ships > -1)
+            {
+                Ships.text = shipReference[^ships..];
+            }
             Score.text = score.ToString("000000000");
-            Ships.text = shipReference[^ships..];
         }
         private void Start()
         {
+            currentWave = 1;
             SpawnWave();
         }
 
@@ -118,13 +124,36 @@ namespace Asteroids
             }
             UpdateScore(asteroidValue);
             Destroy(asteroid);
-
-
         }
         public void PlayerDestroyed(GameObject p)
         {
-            Destroy(p);
+            ships--;
+            if (ships < 0)
+            {
+                Debug.Log("--- Game Over ----");
+                Destroy(p);
+                StartCoroutine(RestartGame());
+            }
+            else
+            {
+                Debug.Log("--- Player scheduled for reincarnation ----");
+                Player player = p.GetComponent<Player>();
+                if (player == null) return;
+                p.SetActive(false); // make player go away
+                StartCoroutine(ReincarnatePlayer(p));
+            }
+        }
 
+        private IEnumerator ReincarnatePlayer(GameObject p)
+        {
+            // we should check if it is safe
+            yield return new WaitForSecondsRealtime(2.5f);
+            p.SetActive(true);
+        }
+        private IEnumerator RestartGame()
+        {
+            yield return new WaitForSecondsRealtime(10f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
