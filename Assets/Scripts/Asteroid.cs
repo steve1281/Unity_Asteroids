@@ -8,27 +8,15 @@ namespace Asteroids
     {
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private List<Vector3> directions;
+        [SerializeField] private AsteroidSpawner asteroidSpawner;
 
-        private int asteroidValue =0;
-
-        private AsteroidSize size = AsteroidSize.Large;
+        private AsteroidSize size; // = AsteroidSize.Large;
 
         [SerializeField] private float speed = 100f;
 
-        void Start()
+        public void SpawnAsteroid(AsteroidSize size)
         {
-            SpawnAsteroid();
-        }
-
-        public void SpawnAsteroid(AsteroidSize size=AsteroidSize.Small)
-        {
-            asteroidValue = size switch
-            {
-                AsteroidSize.Large => 20,
-                AsteroidSize.Medium => 50,
-                AsteroidSize.Small => 100,
-                _    => asteroidValue
-            };
+            this.size = size;
 
             float tempScale = 1.0f;
 
@@ -42,7 +30,6 @@ namespace Asteroids
                 transform.localScale *= .66f;
                 tempScale = 1.33f; 
             }
-            // maybe scale as well?
             List<int> dirs = RandomizeDirections();
             rb.AddForce(directions[dirs[0]] * speed * tempScale);
         }
@@ -62,7 +49,10 @@ namespace Asteroids
         }
         private void OnDestroy()
         {
-            GameManager.Instance.UpdateScore(asteroidValue);
+            if (!gameObject.scene.isLoaded) return;
+
+            if (GameManager.Instance != null) 
+                GameManager.Instance.AsteroidDestroyed(size);
         }
     }
     public enum AsteroidSize

@@ -14,16 +14,20 @@ namespace Asteroids
 
         private void Start()
         {
-            GenerateAsteroids(spawnCount);
+            //GenerateAsteroids(spawnCount);
         }
-        public void GenerateAsteroids(int amount)
+        public void GenerateAsteroids(int amount, AsteroidSize size = AsteroidSize.Large )
         {
             List<int> randomSpawnIndexes = RandomizeSpawnLocations();
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPoint = spawnPoints[randomSpawnIndexes[i]];
                 int randomAsteroid = Random.Range(0, asteroidPrefabs.Count);
-                Instantiate(asteroidPrefabs[randomAsteroid], randomPoint, transform.rotation);
+                GameObject asteroidGO = Instantiate(asteroidPrefabs[randomAsteroid], randomPoint, transform.rotation);
+                Asteroid a = asteroidGO.GetComponent<Asteroid>();
+
+                //Asteroid a = Instantiate<Asteroid>(asteroidPrefabs[randomAsteroid], randomPoint, transform.rotation);
+                a.SpawnAsteroid(size);
             }
         }
 

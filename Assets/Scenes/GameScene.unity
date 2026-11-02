@@ -683,6 +683,7 @@ MonoBehaviour:
   score: 0
   Ships: {fileID: 1295138204}
   ships: 4
+  spawner: {fileID: 61493069}
 --- !u!1001 &1144782119
 PrefabInstance:
   m_ObjectHideFlags: 0
