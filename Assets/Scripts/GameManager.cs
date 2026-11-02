@@ -72,16 +72,20 @@ namespace Asteroids
             int count = currentWave switch
             {
                 1 => 1, // 4
-                2 => 6,
-                3 => 8,
-                _ => 9
+                2 => 2, // 6,
+                3 => 3, // 8,
+                _ => 4  // 9
             };
             spawner.GenerateAsteroids(count, AsteroidSize.Large);
             activeLargeAsteroids = count;
         }
 
-        public void AsteroidDestroyed(AsteroidSize size)
+        public void AsteroidDestroyed(GameObject asteroid) //, AsteroidSize size)
         {
+            Asteroid a = asteroid.GetComponent<Asteroid>();
+            if (a == null) return;
+            AsteroidSize size = a.GetSize();
+
             if (spawner == null) return;
 
             int asteroidValue = 0;
@@ -113,6 +117,13 @@ namespace Asteroids
                 SpawnWave();
             }
             UpdateScore(asteroidValue);
+            Destroy(asteroid);
+
+
+        }
+        public void PlayerDestroyed(GameObject p)
+        {
+            Destroy(p);
 
         }
     }

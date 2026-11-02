@@ -8,7 +8,6 @@ namespace Asteroids
     public class AsteroidSpawner : MonoBehaviour
     {
         [SerializeField] private List<Vector3> spawnPoints;
-        [SerializeField] private int spawnCount = 1;
 
         [SerializeField] private List<GameObject> asteroidPrefabs;
 

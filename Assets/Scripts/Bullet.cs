@@ -25,7 +25,8 @@ namespace Asteroids
             if (other.gameObject.layer == Layers.Enemy)
             {
                 Debug.Log("Bullet::OnTriggerEnter2D Hit enemy; destroy it for now.");
-                Destroy(other.gameObject);
+                GameManager.Instance.AsteroidDestroyed(other.gameObject);
+                //Destroy(other.gameObject);
             }
             // if bullet collides with anything; remove it
             Debug.Log("Bullet::OnTriggerEnter2D collided and removed bullet.");

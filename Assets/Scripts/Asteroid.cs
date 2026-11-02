@@ -14,6 +14,10 @@ namespace Asteroids
 
         [SerializeField] private float speed = 100f;
 
+        public AsteroidSize GetSize()
+        {
+            return size;
+        }
         public void SpawnAsteroid(AsteroidSize size)
         {
             this.size = size;
@@ -38,7 +42,8 @@ namespace Asteroids
             if (other.gameObject.layer == Layers.Player)
             {
                 Debug.Log("Asteroid::OnTriggerEnter2D Hit player; destroy it for now.");
-                Destroy(other.gameObject);
+                GameManager.Instance.PlayerDestroyed(other.gameObject);
+                //Destroy(other.gameObject);
             }
         }
         private List<int> RandomizeDirections()
@@ -46,13 +51,6 @@ namespace Asteroids
             List<int> temp = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
             temp = temp.OrderBy(x => Random.value).ToList();
             return temp;
-        }
-        private void OnDestroy()
-        {
-            if (!gameObject.scene.isLoaded) return;
-
-            if (GameManager.Instance != null) 
-                GameManager.Instance.AsteroidDestroyed(size);
         }
     }
     public enum AsteroidSize
