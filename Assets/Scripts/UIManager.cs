@@ -7,6 +7,7 @@ namespace Asteroids
     {
         [SerializeField] private TextMeshProUGUI Score;
         [SerializeField] private TextMeshProUGUI Ships;
+        [SerializeField] private GameObject gameOver;
 
         public void UpdateShips(int ships)
         {
@@ -20,6 +21,11 @@ namespace Asteroids
         public void UpdateScore(int score)
         {
             Score.text = score.ToString("000000000");
+        }
+
+        public void ToggleGameOver()
+        {
+            gameOver.SetActive(!gameOver.activeSelf);
         }
     }
 }

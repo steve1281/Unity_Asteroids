@@ -147,6 +147,7 @@ namespace Asteroids
             {
                 Debug.Log("--- Game Over ----");
                 Destroy(p);
+                ui.ToggleGameOver();
                 StartCoroutine(RestartGame());
             }
             else
