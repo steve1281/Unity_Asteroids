@@ -678,11 +678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac48dfc71c6a784891b5b1c0da7f75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroids.GameManager
-  Score: {fileID: 222345599}
-  score: 0
-  Ships: {fileID: 1295138204}
-  ships: 4
-  spawner: {fileID: 61493069}
 --- !u!1001 &1144782119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,6 +767,7 @@ GameObject:
   - component: {fileID: 1290941674}
   - component: {fileID: 1290941673}
   - component: {fileID: 1290941672}
+  - component: {fileID: 1290941676}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -863,6 +859,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1290941676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290941671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87587f11e23a0f14e9894c7462fc32a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Score: {fileID: 222345599}
+  Ships: {fileID: 1295138204}
 --- !u!1 &1295138202
 GameObject:
   m_ObjectHideFlags: 0

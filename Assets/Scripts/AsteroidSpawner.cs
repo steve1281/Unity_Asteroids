@@ -11,10 +11,6 @@ namespace Asteroids
 
         [SerializeField] private List<GameObject> asteroidPrefabs;
 
-        private void Start()
-        {
-            //GenerateAsteroids(spawnCount);
-        }
         public void GenerateAsteroids(int amount, AsteroidSize size = AsteroidSize.Large )
         {
             List<int> randomSpawnIndexes = RandomizeSpawnLocations();

@@ -1,0 +1,25 @@
+using TMPro;
+using UnityEngine;
+
+namespace Asteroids
+{
+    public class UIManager : MonoBehaviour
+    {
+        [SerializeField] private TextMeshProUGUI Score;
+        [SerializeField] private TextMeshProUGUI Ships;
+
+        public void UpdateShips(int ships)
+        {
+            string shipReference = "^^^^^^^^^^^^";
+            if (ships > -1)
+            {
+                Ships.text = shipReference[^ships..];
+            }
+        }
+
+        public void UpdateScore(int score)
+        {
+            Score.text = score.ToString("000000000");
+        }
+    }
+}

@@ -1,5 +1,4 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,13 +6,16 @@ namespace Asteroids
 {
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI Score;
-        public int score = 0;
-        [SerializeField] private TextMeshProUGUI Ships;
-        public int ships = 4;
-        private string shipReference = "^^^^^^^^^^^^";
-
+ 
+        private AsteroidSpawner spawner;
+        private UIManager ui;
+        private int score = 0;
+        private int ships = 4;
         private int activePlayerBullets = 0;
+        private int activeLargeAsteroids = 0;
+        private int activeMediumAsteroids = 0;
+        private int activeSmallAsteroids = 0;
+        private int currentWave = 1;
 
         private static GameManager instance;
         public static GameManager Instance { get => instance; private set => instance = value; }
@@ -30,16 +32,32 @@ namespace Asteroids
 
         private void Update()
         {
-            if (ships > -1)
-            {
-                Ships.text = shipReference[^ships..];
-            }
-            Score.text = score.ToString("000000000");
+            ui.UpdateShips(ships);
+            ui.UpdateScore(score);
         }
-        private void Start()
+
+        private void OnEnable()
         {
-            currentWave = 1;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            spawner = FindAnyObjectByType<AsteroidSpawner>();
+            ui = FindAnyObjectByType<UIManager>();
+            ResetGame();
             SpawnWave();
+        }
+        private void ResetGame()
+        {
+            score = 0;
+            currentWave = 1;
+            ships = 4;
         }
 
         public void UpdateScore(int amount = 1)
@@ -67,14 +85,11 @@ namespace Asteroids
             return false;
         }
 
-        [SerializeField] private AsteroidSpawner spawner;
-        private int activeLargeAsteroids = 0;
-        private int activeMediumAsteroids = 0;
-        private int activeSmallAsteroids = 0;
-        private int currentWave = 1;
+
 
         public void SpawnWave()
         {
+            Debug.Log($"GameManager::SpawnWave current wave {currentWave}");
             int count = currentWave switch
             {
                 1 => 1, // 4
