@@ -10,6 +10,7 @@ namespace Asteroids
         private AsteroidSpawner spawner;
         private UIManager ui;
         private int score = 0;
+        private int highScore = 0;
         private int ships = 4;
         private int activePlayerBullets = 0;
         private int activeLargeAsteroids = 0;
@@ -34,6 +35,11 @@ namespace Asteroids
         {
             ui.UpdateShips(ships);
             ui.UpdateScore(score);
+            if (score > highScore)
+            {
+                highScore = score;
+            }
+            ui.UpdateHighScore(highScore);
         }
 
         private void OnEnable()
@@ -55,9 +61,14 @@ namespace Asteroids
         }
         private void ResetGame()
         {
+
             score = 0;
             currentWave = 1;
             ships = 4;
+            activePlayerBullets = 0;
+            activeLargeAsteroids = 0;
+            activeMediumAsteroids = 0;
+            activeSmallAsteroids = 0;
         }
 
         public void UpdateScore(int amount = 1)

@@ -6,6 +6,7 @@ namespace Asteroids
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI Score;
+        [SerializeField] private TextMeshProUGUI HighScore;
         [SerializeField] private TextMeshProUGUI Ships;
         [SerializeField] private GameObject gameOver;
 
@@ -26,6 +27,10 @@ namespace Asteroids
         public void ToggleGameOver()
         {
             gameOver.SetActive(!gameOver.activeSelf);
+        }
+        public void UpdateHighScore(int highScore)
+        {
+            HighScore.text = highScore.ToString("000000000");
         }
     }
 }
