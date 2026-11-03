@@ -9,6 +9,8 @@ namespace Asteroids
  
         private AsteroidSpawner spawner;
         private UIManager ui;
+        private Saucer saucer;
+
         private int score = 0;
         private int highScore = 0;
         private int ships = 4;
@@ -56,8 +58,10 @@ namespace Asteroids
         {
             spawner = FindAnyObjectByType<AsteroidSpawner>();
             ui = FindAnyObjectByType<UIManager>();
+            saucer = FindAnyObjectByType<Saucer>();
             ResetGame();
             SpawnWave();
+            SpawnSaucers(); // needs to be a coroutine I think
         }
         private void ResetGame()
         {
@@ -181,6 +185,11 @@ namespace Asteroids
         {
             yield return new WaitForSecondsRealtime(10f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        private void SpawnSaucers()
+        {
+            saucer.SpawnSaucer(SaucerSize.Large, new Vector3(-3f, -3f, 0f));
         }
     }
 }
