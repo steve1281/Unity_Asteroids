@@ -6,10 +6,42 @@ namespace Asteroids
     public class Saucer : MonoBehaviour
     {
         [SerializeField] private Saucer saucerPrefab;
-        private SaucerSize size; 
-        public void SpawnSaucer(SaucerSize size, Vector3 location)
+        [SerializeField] private float speed = 2.5f;
+        private SaucerSize size;
+
+        private List<Vector3> rightDirections = new List<Vector3>()
+        {
+            new Vector3(-6.5f, 4.5f, 0f),
+            new Vector3(-6.5f, 3.5f, 0f),
+            new Vector3(-6.5f, 2.5f, 0f),
+            new Vector3(-6.5f, 1.5f, 0f),
+            new Vector3(-6.5f, 0.5f, 0f),
+            new Vector3(-6.5f, -0.5f, 0f),
+            new Vector3(-6.5f, -1.5f, 0f),
+            new Vector3(-6.5f, -2.5f, 0f),
+            new Vector3(-6.5f, -3.5f, 0f),
+            new Vector3(-6.5f, -4.5f, 0f)
+        };
+        private List<Vector3> leftDirections = new List<Vector3>()
+        {
+            new Vector3(6.5f, 4.5f, 0f),
+            new Vector3(6.5f, 3.5f, 0f),
+            new Vector3(6.5f, 2.5f, 0f),
+            new Vector3(6.5f, 1.5f, 0f),
+            new Vector3(6.5f, 0.5f, 0f),
+            new Vector3(6.5f, -0.5f, 0f),
+            new Vector3(6.5f, -1.5f, 0f),
+            new Vector3(6.5f, -2.5f, 0f),
+            new Vector3(6.5f, -3.5f, 0f),
+            new Vector3(6.5f, -4.5f, 0f)
+        };
+
+        public void SpawnSaucer(SaucerSize size)
         {
             this.size = size;
+
+            Vector3 location = GetRandomStartLocation();
+
             Saucer s = Instantiate<Saucer>(saucerPrefab, location, Quaternion.identity);
             switch (size)
             {
@@ -23,11 +55,28 @@ namespace Asteroids
                     s.transform.localScale = Vector3.one; // Default size
                     break;
             }
+            LaunchSaucer(s.GetComponent<Rigidbody2D>());
+        }
+        private void LaunchSaucer(Rigidbody2D rb)
+        {
+            rb.linearVelocity = Vector2.right * speed; ;
+        }
+        private Vector3 GetRandomStartLocation()
+        {
+            return rightDirections[3];
         }
         public SaucerSize GetSize()
         {
             return size;
-        }           
+        }
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.layer == Layers.Player)
+            {
+                Debug.Log("Saucer::OnTriggerEnter2D Hit player; destroy it for now.");
+                GameManager.Instance.PlayerDestroyed(other.gameObject);
+            }
+        }
     }
 
 

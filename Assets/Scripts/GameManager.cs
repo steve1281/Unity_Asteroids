@@ -19,7 +19,7 @@ namespace Asteroids
         private int activeMediumAsteroids = 0;
         private int activeSmallAsteroids = 0;
         private int currentWave = 1;
-
+        private bool activeSaucer = false;
         private static GameManager instance;
         public static GameManager Instance { get => instance; private set => instance = value; }
         private void Awake()
@@ -116,6 +116,32 @@ namespace Asteroids
             activeLargeAsteroids = count;
         }
 
+
+        public void SaucerEscaped(GameObject saucer)
+        { 
+            activeSaucer = false;
+            Destroy(saucer);
+        }
+
+        public void SaucerDestroyed(GameObject saucer)
+        {
+            Saucer s = saucer.GetComponent<Saucer>();
+            if (s == null) return;
+            SaucerSize size = s.GetSize();
+            int value = 0;
+            if (size == SaucerSize.Large)
+            {
+                value = 200;
+            } else if (size == SaucerSize.Small) 
+            {
+                value = 1000;
+            }
+
+            UpdateScore(value);
+            activeSaucer = false;
+            Destroy(saucer);
+        }
+
         public void AsteroidDestroyed(GameObject asteroid) //, AsteroidSize size)
         {
             Asteroid a = asteroid.GetComponent<Asteroid>();
@@ -189,7 +215,8 @@ namespace Asteroids
 
         private void SpawnSaucers()
         {
-            saucer.SpawnSaucer(SaucerSize.Large, new Vector3(-3f, -3f, 0f));
+            saucer.SpawnSaucer(SaucerSize.Large);
+            activeSaucer = true;
         }
     }
 }

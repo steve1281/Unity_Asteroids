@@ -15,5 +15,6 @@ namespace Asteroids
         public static readonly int Player = LayerMask.NameToLayer("Player");
         public static readonly int Enemy = LayerMask.NameToLayer("Enemy");
         public static readonly int Teleporter = LayerMask.NameToLayer("Teleporter");
+        public static readonly int Saucer = LayerMask.NameToLayer("Saucer");
     }
 }

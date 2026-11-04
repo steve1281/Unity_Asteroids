@@ -29,6 +29,11 @@ namespace Asteroids
                 GameManager.Instance.AsteroidDestroyed(other.gameObject);
                 //Destroy(other.gameObject);
             }
+            if (other.gameObject.layer == Layers.Saucer)
+            {
+                Debug.Log("Bullet::OnTriggerEnter2D Hit a saucer; destroy it for now.");
+                GameManager.Instance.SaucerDestroyed(other.gameObject);
+            }
             // if bullet collides with anything; remove it
             Debug.Log("Bullet::OnTriggerEnter2D collided and removed bullet.");
             Destroy(gameObject);

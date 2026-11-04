@@ -9,6 +9,13 @@ namespace Asteroids
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.gameObject.layer == Layers.Saucer)
+            {
+                Debug.Log("Teleporter::OnTriggerEnter2D Hit by Saucer; escape it.");
+                GameManager.Instance.SaucerEscaped(other.gameObject);
+                return;
+            }
+
             //Debug.Log($"Teleporter:::OnTriggerEnter called, modify X: {newx}, Y: {newy}");
             Vector3 newPosition = other.transform.position;
             newPosition.x = newx==-99f?newPosition.x:newx;
