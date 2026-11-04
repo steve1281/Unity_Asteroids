@@ -61,7 +61,7 @@ namespace Asteroids
             saucer = FindAnyObjectByType<Saucer>();
             ResetGame();
             SpawnWave();
-            SpawnSaucers(); // needs to be a coroutine I think
+            StartCoroutine(SpawnSaucers()); // needs to be a coroutine I think
         }
         private void ResetGame()
         {
@@ -213,10 +213,23 @@ namespace Asteroids
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        private void SpawnSaucers()
+        private IEnumerator SpawnSaucers()
         {
-            saucer.SpawnSaucer(SaucerSize.Large);
-            activeSaucer = true;
+            while (true)
+            {
+                yield return (new WaitForSecondsRealtime(15));
+                if (!activeSaucer)
+                {
+                    if (activeLargeAsteroids +  activeSmallAsteroids + activeMediumAsteroids < 2)
+                    {
+                        saucer.SpawnSaucer(SaucerSize.Small);
+                    } else
+                    {
+                        saucer.SpawnSaucer(SaucerSize.Large);
+                    }
+                    activeSaucer = true;
+                }
+            }
         }
     }
 }
