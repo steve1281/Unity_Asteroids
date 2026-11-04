@@ -55,15 +55,22 @@ namespace Asteroids
                     s.transform.localScale = Vector3.one; // Default size
                     break;
             }
-            LaunchSaucer(s.GetComponent<Rigidbody2D>());
+            LaunchSaucer(s.GetComponent<Rigidbody2D>(), Mathf.Sign(location.x) * -1.0f);
         }
-        private void LaunchSaucer(Rigidbody2D rb)
+        private void LaunchSaucer(Rigidbody2D rb, float sign)
         {
-            rb.linearVelocity = Vector2.right * speed; ;
+            rb.linearVelocity = Vector2.right * speed * sign; 
         }
         private Vector3 GetRandomStartLocation()
         {
-            return rightDirections[3];
+            if (Random.value < 0.5f)
+            {
+                return rightDirections[Random.Range(0, rightDirections.Count)]; 
+
+            } else
+            {
+                return leftDirections[Random.Range(0, leftDirections.Count)]; 
+            }
         }
         public SaucerSize GetSize()
         {
