@@ -7,6 +7,10 @@ namespace Asteroids
     {
         [SerializeField] private Saucer saucerPrefab;
         [SerializeField] private float speed = 2.5f;
+
+        [SerializeField] private GameObject cannon;
+        [SerializeField] private EnemyBullet bulletPrefab;
+
         private SaucerSize size;
 
         private List<Vector3> rightDirections = new List<Vector3>()
@@ -36,7 +40,7 @@ namespace Asteroids
             new Vector3(6.5f, -4.5f, 0f)
         };
 
-        public void SpawnSaucer(SaucerSize size)
+        public Saucer SpawnSaucer(SaucerSize size)
         {
             this.size = size;
 
@@ -56,6 +60,7 @@ namespace Asteroids
                     break;
             }
             LaunchSaucer(s.GetComponent<Rigidbody2D>(), Mathf.Sign(location.x) * -1.0f);
+            return s;
         }
         private void LaunchSaucer(Rigidbody2D rb, float sign)
         {
@@ -84,6 +89,19 @@ namespace Asteroids
                 GameManager.Instance.PlayerDestroyed(other.gameObject);
             }
         }
+
+        public void FireBullet(Transform playerLocation)
+        {
+            Debug.Log($"Saucer::FireBullet at {playerLocation.position}");
+            // fire directly at player.  Not final design
+
+            Vector3 directionToPlayer = playerLocation.position - cannon.transform.position;
+            Vector3 forceDirection = (playerLocation.position - transform.position).normalized;
+
+            EnemyBullet e = Instantiate<EnemyBullet>(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
+            e.Fire(forceDirection);
+        }
+
     }
 
 

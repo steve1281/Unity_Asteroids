@@ -60,6 +60,10 @@ namespace Asteroids
             {
                 GameManager.Instance.PlayerDestroyed(gameObject);
             }
+            if (Keyboard.current.wKey.wasPressedThisFrame)
+            {
+                GameManager.Instance.FireSaucerBullet();
+            }
 
             // bug fix: remove angular (spin) from the player
             rb.angularVelocity = 0f;

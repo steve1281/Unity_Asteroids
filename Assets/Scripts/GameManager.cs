@@ -9,7 +9,7 @@ namespace Asteroids
  
         private AsteroidSpawner spawner;
         private UIManager ui;
-        private Saucer saucer;
+        private Saucer saucer = null;
 
         private int score = 0;
         private int highScore = 0;
@@ -121,6 +121,7 @@ namespace Asteroids
         { 
             activeSaucer = false;
             Destroy(saucer);
+            currentSaucer = null;   // why doesn't the Destroy do this? copy I guess
         }
 
         public void SaucerDestroyed(GameObject saucer)
@@ -140,6 +141,7 @@ namespace Asteroids
             UpdateScore(value);
             activeSaucer = false;
             Destroy(saucer);
+            currentSaucer = null;   // why doesn't the Destroy do this? copy I guess
         }
 
         public void AsteroidDestroyed(GameObject asteroid) //, AsteroidSize size)
@@ -213,6 +215,7 @@ namespace Asteroids
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
+        private Saucer currentSaucer =null;
         private IEnumerator SpawnSaucers()
         {
             while (true)
@@ -222,12 +225,26 @@ namespace Asteroids
                 {
                     if (activeLargeAsteroids +  activeSmallAsteroids + activeMediumAsteroids < 2)
                     {
-                        saucer.SpawnSaucer(SaucerSize.Small);
+                        currentSaucer = saucer.SpawnSaucer(SaucerSize.Small);
                     } else
                     {
-                        saucer.SpawnSaucer(SaucerSize.Large);
+                        currentSaucer = saucer.SpawnSaucer(SaucerSize.Large);
                     }
                     activeSaucer = true;
+                }
+            }
+        }
+        public void FireSaucerBullet()
+        {
+            //Debug.Log("GameManager::FireSaucerBullet called.");
+            if (currentSaucer != null) //activeSaucer)
+            {
+                Debug.Log($"GameManager::FireSaucerBullet currentSaucer is active at {currentSaucer.transform.position}.");
+                Player p = FindAnyObjectByType<Player>();
+                if (p != null) 
+                {
+                    //Debug.Log("GameManager::FireSaucerBullet player located/targeted.");
+                    currentSaucer.FireBullet(p.transform);
                 }
             }
         }
