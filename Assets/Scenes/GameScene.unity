@@ -390,6 +390,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222345597}
   m_CullTransparentMesh: 1
+--- !u!1 &298469874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3344979907247472550, guid: 92c72bd3a48e85e4ab93522e2cc5cee2, type: 3}
+  m_PrefabInstance: {fileID: 1779624861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &390328102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,6 +1673,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2599766964363604271, guid: 92c72bd3a48e85e4ab93522e2cc5cee2, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: 298469874}
+    - target: {fileID: 2599766964363604271, guid: 92c72bd3a48e85e4ab93522e2cc5cee2, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6131040161435669761, guid: c36eca7e23c14e6409b89f904dec02fa, type: 3}
     - target: {fileID: 3344979907247472550, guid: 92c72bd3a48e85e4ab93522e2cc5cee2, type: 3}
       propertyPath: m_Name
       value: LargeSaucer
