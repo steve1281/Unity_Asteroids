@@ -12,7 +12,7 @@ namespace Asteroids
         [SerializeField] private GameObject thrust;
         [SerializeField] private GameObject sprite;
 
-        [SerializeField] private float thrusterPower = 10f;
+        [SerializeField] private float thrusterPower = 15f;
 
         [SerializeField] private GameObject cannon;
         [SerializeField] private GameObject bulletPrefab;

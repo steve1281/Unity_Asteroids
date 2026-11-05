@@ -42,7 +42,7 @@ namespace Asteroids
 
         public Saucer SpawnSaucer(SaucerSize size)
         {
-            this.size = size;
+            //this.size = size;
 
             Vector3 location = GetRandomStartLocation();
 
@@ -60,6 +60,7 @@ namespace Asteroids
                     break;
             }
             LaunchSaucer(s.GetComponent<Rigidbody2D>(), Mathf.Sign(location.x) * -1.0f);
+            s.SetSize(size);
             return s;
         }
         private void LaunchSaucer(Rigidbody2D rb, float sign)
@@ -80,6 +81,10 @@ namespace Asteroids
         public SaucerSize GetSize()
         {
             return size;
+        }
+        public void SetSize(SaucerSize size)
+        {
+            this.size = size;
         }
         private void OnTriggerEnter2D(Collider2D other)
         {

@@ -135,7 +135,7 @@ namespace Asteroids
                 value = 200;
             } else if (size == SaucerSize.Small) 
             {
-                value = 1000;
+                value = 10000;
             }
 
             UpdateScore(value);
