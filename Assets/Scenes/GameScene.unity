@@ -1429,6 +1429,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 6055677435934778801, guid: 5e1b83a73d676584a89d068c8df132a8, type: 3}
+      propertyPath: thrusterPower
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

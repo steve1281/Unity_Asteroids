@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 namespace Asteroids
@@ -61,6 +62,7 @@ namespace Asteroids
             }
             LaunchSaucer(s.GetComponent<Rigidbody2D>(), Mathf.Sign(location.x) * -1.0f);
             s.SetSize(size);
+            StartCoroutine(FireBullets());
             return s;
         }
         private void LaunchSaucer(Rigidbody2D rb, float sign)
@@ -95,14 +97,30 @@ namespace Asteroids
             }
         }
 
+        public IEnumerator FireBullets()
+        {
+            for (int i = 0;i<2;i++)
+            {
+                yield return new WaitForSecondsRealtime(2);
+                GameManager.Instance.FireSaucerBullet(); 
+            }
+        }
         public void FireBullet(Transform playerLocation)
         {
-            Debug.Log($"Saucer::FireBullet at {playerLocation.position}");
-            // fire directly at player.  Not final design
-
-            Vector3 directionToPlayer = playerLocation.position - cannon.transform.position;
-            Vector3 forceDirection = (playerLocation.position - transform.position).normalized;
-
+            Vector3 targetLocation = playerLocation.position;
+            // if Large saucer, randomize it a bit
+            if (size == SaucerSize.Large)
+            {
+                if (Random.value < 0.5f)
+                {
+                    targetLocation.x += 1.0f;
+                } else
+                {
+                    targetLocation.x -= 1.0f;
+                }
+            }
+            // calculate direction
+            Vector3 forceDirection = (targetLocation - transform.position).normalized;
             EnemyBullet e = Instantiate<EnemyBullet>(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
             e.Fire(forceDirection);
         }

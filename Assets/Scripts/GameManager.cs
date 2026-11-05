@@ -135,7 +135,7 @@ namespace Asteroids
                 value = 200;
             } else if (size == SaucerSize.Small) 
             {
-                value = 10000;
+                value = 1000;
             }
 
             UpdateScore(value);
@@ -188,14 +188,14 @@ namespace Asteroids
             ships--;
             if (ships < 0)
             {
-                Debug.Log("--- Game Over ----");
+                //Debug.Log("--- Game Over ----");
                 Destroy(p);
                 ui.ToggleGameOver();
                 StartCoroutine(RestartGame());
             }
             else
             {
-                Debug.Log("--- Player scheduled for reincarnation ----");
+                //Debug.Log("--- Player scheduled for reincarnation ----");
                 Player player = p.GetComponent<Player>();
                 if (player == null) return;
                 p.SetActive(false); // make player go away
@@ -231,7 +231,7 @@ namespace Asteroids
                         currentSaucer = saucer.SpawnSaucer(SaucerSize.Large);
                     }
                     activeSaucer = true;
-                }
+                } 
             }
         }
         public void FireSaucerBullet()
