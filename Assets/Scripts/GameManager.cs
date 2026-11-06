@@ -11,6 +11,8 @@ namespace Asteroids
         private UIManager ui;
         private Saucer saucer = null;
 
+        public AudioManager audioManager;
+
         private int score = 0;
         private int highScore = 0;
         private int ships = 4;
@@ -59,6 +61,7 @@ namespace Asteroids
             spawner = FindAnyObjectByType<AsteroidSpawner>();
             ui = FindAnyObjectByType<UIManager>();
             saucer = FindAnyObjectByType<Saucer>();
+            audioManager = FindAnyObjectByType<AudioManager>();
             ResetGame();
             SpawnWave();
             StartCoroutine(SpawnSaucers()); // needs to be a coroutine I think

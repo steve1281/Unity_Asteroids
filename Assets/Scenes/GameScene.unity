@@ -177,6 +177,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &102335796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102335798}
+  - component: {fileID: 102335797}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &102335797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102335796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6912d3100e17a409ee9f9138667a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  shootingClip: {fileID: 8300000, guid: d944fe0f70cb27649aed395c1beeb5e4, type: 3}
+  shootingVolume: 0.5
+  thrustingClip: {fileID: 8300000, guid: 194080c5aac64c24695240e8f3335ef8, type: 3}
+  thrustingVolume: 0.5
+  saucerShootingClip: {fileID: 8300000, guid: b6cc7cbb90db6dc40a69daf1b4fa9fff, type: 3}
+  saucerShootingVolume: 0.5
+--- !u!4 &102335798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102335796}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158251658
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,6 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac48dfc71c6a784891b5b1c0da7f75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroids.GameManager
+  audioManager: {fileID: 0}
 --- !u!1 &1140774461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,3 +1954,4 @@ SceneRoots:
   - {fileID: 1661580335}
   - {fileID: 61493070}
   - {fileID: 1779624861}
+  - {fileID: 102335798}

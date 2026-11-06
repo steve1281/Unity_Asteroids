@@ -123,6 +123,8 @@ namespace Asteroids
             Vector3 forceDirection = (targetLocation - transform.position).normalized;
             EnemyBullet e = Instantiate<EnemyBullet>(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
             e.Fire(forceDirection);
+            GameManager.Instance.audioManager.PlaySaucerShootingSFX(); 
+
         }
 
     }

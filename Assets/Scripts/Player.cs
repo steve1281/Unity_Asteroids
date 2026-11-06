@@ -46,6 +46,7 @@ namespace Asteroids
                 //Debug.Log("Player::Update Thrust");
                 StartCoroutine(Thrust());
                 rb.AddForce(transform.right * thrusterPower );
+                GameManager.Instance.audioManager.PlayThrustingSFX();
 
             }
             if (Keyboard.current.spaceKey.wasPressedThisFrame) //isPressed)
@@ -54,6 +55,7 @@ namespace Asteroids
                 {
                     Instantiate(bulletPrefab, cannon.transform.position, cannon.transform.rotation, null);
                     GameManager.Instance.AddPlayerBullet();
+                    GameManager.Instance.audioManager.PlayShootingSFX();
                 }
             }
             if (Keyboard.current.qKey.wasPressedThisFrame)
